@@ -1,2 +1,10 @@
-username: "John"
-password: "123"
+login: John
+password: 123
+signing_key: exampleSigningKey
+client_id: exampleClientID
+secret: exampleSecret
+password_grant_type: password
+token_validity_seconds: 600
+scopes:
+  - read
+  - write

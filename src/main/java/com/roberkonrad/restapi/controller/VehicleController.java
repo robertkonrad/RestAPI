@@ -1,5 +1,6 @@
 package com.roberkonrad.restapi.controller;
 
+import com.roberkonrad.restapi.configuration.YAMLConfig;
 import com.roberkonrad.restapi.model.Vehicle;
 import com.roberkonrad.restapi.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +14,11 @@ import java.util.Map;
 @RequestMapping("/vehicles")
 @CrossOrigin
 public class VehicleController {
-
     @Autowired
     private VehicleService vehicleService;
+
+    @Autowired
+    private YAMLConfig yamlConfig;
 
     @GetMapping
     public Map<String, Object> getVehiclesByCoordinatesAndDistance(@RequestParam double lat, @RequestParam double lon, @RequestParam double dist) {
