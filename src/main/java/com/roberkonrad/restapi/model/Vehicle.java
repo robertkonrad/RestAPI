@@ -1,9 +1,10 @@
 package com.roberkonrad.restapi.model;
 
 public class Vehicle {
-    String position_id;
-    double latitude;
-    double longitude;
+
+    private String position_id;
+    private double latitude;
+    private double longitude;
 
     public Vehicle() {
     }

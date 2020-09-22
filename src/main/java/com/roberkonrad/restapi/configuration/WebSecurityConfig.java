@@ -17,7 +17,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private YAMLConfig yamlConfig;
+    private Oauth2Config oauth2Config;
 
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -27,7 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setSigningKey(yamlConfig.getSigning_key());
+        converter.setSigningKey(oauth2Config.getSigningKey());
         return converter;
     }
 
@@ -39,8 +39,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser(yamlConfig.getLogin())
-                .password("{noop}" + yamlConfig.getPassword())
+                .withUser(oauth2Config.getLogin())
+                .password("{noop}" + oauth2Config.getPassword())
                 .roles("USER");
     }
 

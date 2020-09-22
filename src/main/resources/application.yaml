@@ -1,10 +1,16 @@
-login: John
-password: 123
-signing_key: exampleSigningKey
-client_id: exampleClientID
-secret: exampleSecret
-password_grant_type: password
-token_validity_seconds: 600
-scopes:
-  - read
-  - write
+#oauth2 and jwt
+oauth2:
+  login: John
+  password: 123
+  signing_key: exampleSigningKey
+  client_id: exampleClientID
+  secret: exampleSecret
+  password_grant_type: password
+  token_validity_seconds: 600
+  scopes:
+    - read
+    - write
+
+#file upload
+file:
+  upload_folder: ./uploads

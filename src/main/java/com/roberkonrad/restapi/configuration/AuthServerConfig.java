@@ -16,7 +16,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
-    private YAMLConfig yamlConfig;
+    private Oauth2Config oauth2Config;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -38,11 +38,11 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients
                 .inMemory()
-                .withClient(yamlConfig.getClient_id())
-                .secret("{noop}" + yamlConfig.getSecret())
-                .authorizedGrantTypes(yamlConfig.getPassword_grant_type())
-                .accessTokenValiditySeconds(yamlConfig.getToken_validity_seconds())
-                .scopes(yamlConfig.getScopes());
+                .withClient(oauth2Config.getClientId())
+                .secret("{noop}" + oauth2Config.getSecret())
+                .authorizedGrantTypes(oauth2Config.getPasswordGrantType())
+                .accessTokenValiditySeconds(oauth2Config.getTokenValiditySeconds())
+                .scopes(oauth2Config.getScopes());
     }
 
     @Override
