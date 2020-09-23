@@ -15,6 +15,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/vehicles/**").access("#oauth2.hasScope('read')")
+                .antMatchers(HttpMethod.GET, "/downloadFile/**").access("#oauth2.hasScope('read')")
                 .antMatchers(HttpMethod.POST, "/uploadFile").access("#oauth2.hasScope('write')")
                 .anyRequest().authenticated()
                 .and()
