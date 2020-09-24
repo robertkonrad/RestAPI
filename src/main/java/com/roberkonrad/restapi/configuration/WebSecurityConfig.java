@@ -17,7 +17,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private Oauth2Config oauth2Config;
+    private OAuth2Config oauth2Config;
 
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {

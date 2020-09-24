@@ -7,7 +7,7 @@ import java.util.List;
 
 @Configuration
 @ConfigurationProperties(prefix = "oauth2")
-public class Oauth2Config {
+public class OAuth2Config {
 
     private String login;
     private String password;
