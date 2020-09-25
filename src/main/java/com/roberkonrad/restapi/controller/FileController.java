@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-public class FileUploadController {
+public class FileController {
 
     @Autowired
     private FileService fileService;
