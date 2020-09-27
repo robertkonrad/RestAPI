@@ -1,0 +1,103 @@
+= Rest API
+
+Rest API application allow to get list of vehicles from localization by distance in metres. Also allow to upload and download files.
+
+== Authorization
+
+=== This endpoint allow users to get authentication token.
+
+.request
+include::{snippets}/get-token-valid/http-request.adoc[]
+
+.request-parameters
+include::{snippets}/get-token-valid/request-parameters.adoc[]
+
+.request-headers
+include::{snippets}/get-token-valid/request-headers.adoc[]
+
+.response
+include::{snippets}/get-token-valid/http-response.adoc[]
+
+.response-fields
+include::{snippets}/get-token-valid/response-fields.adoc[]
+
+.curl
+include::{snippets}/get-token-valid/curl-request.adoc[]
+
+=== This endpoint allow users to get information about token.
+
+.request
+include::{snippets}/check-access-token-valid/http-request.adoc[]
+
+.request-parameters
+include::{snippets}/check-access-token-valid/request-parameters.adoc[]
+
+.request-headers
+include::{snippets}/check-access-token-valid/request-headers.adoc[]
+
+.response
+include::{snippets}/check-access-token-valid/http-response.adoc[]
+
+.response
+include::{snippets}/check-access-token-valid/response-fields.adoc[]
+
+.curl
+include::{snippets}/check-access-token-valid/curl-request.adoc[]
+
+== Vehicles
+
+=== This endpoint will return a list of vehicles that are in specific distance from given localization.
+
+.request
+include::{snippets}/get-vehicles-auth/http-request.adoc[]
+
+.path-parameters
+include::{snippets}/get-vehicles-auth/path-parameters.adoc[]
+
+.request-headers
+include::{snippets}/get-vehicles-auth/request-headers.adoc[]
+
+.response
+include::{snippets}/get-vehicles-auth/http-response.adoc[]
+
+.response-fields
+include::{snippets}/get-vehicles-auth/response-fields.adoc[]
+
+.curl
+include::{snippets}/get-vehicles-auth/curl-request.adoc[]
+
+== Files
+
+=== This endpoint allow user to upload file on server.
+
+.request
+include::{snippets}/upload-file-auth/http-request.adoc[]
+
+.request-headers
+include::{snippets}/upload-file-auth/request-headers.adoc[]
+
+.response
+include::{snippets}/upload-file-auth/http-response.adoc[]
+
+.response-fields
+include::{snippets}/upload-file-auth/response-fields.adoc[]
+
+.curl
+include::{snippets}/upload-file-auth/curl-request.adoc[]
+
+=== This endpoint allow user to download file from server.
+
+.request
+include::{snippets}/download-file-auth/http-request.adoc[]
+
+.path-parameters
+include::{snippets}/download-file-auth/path-parameters.adoc[]
+
+.request-headers
+include::{snippets}/download-file-auth/request-headers.adoc[]
+
+.response
+include::{snippets}/download-file-auth/http-response.adoc[]
+
+.curl
+include::{snippets}/download-file-auth/curl-request.adoc[]
