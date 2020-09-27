@@ -8,8 +8,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -28,14 +26,12 @@ public class VehicleControllerTest {
     private OAuth2Config oAuth2Config;
 
     private String getAccessToken() throws Exception {
-        MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
-        params.add("grant_type", "password");
-        params.add("username", oAuth2Config.getLogin());
-        params.add("password", oAuth2Config.getPassword());
         ResultActions resultActions =
                 mockMvc.perform(post("/oauth/token")
-                        .params(params)
-                        .with(httpBasic("exampleClientID", "exampleSecret"))
+                        .param("grant_type", oAuth2Config.getPasswordGrantType())
+                        .param("username", oAuth2Config.getLogin())
+                        .param("password", oAuth2Config.getPassword())
+                        .with(httpBasic(oAuth2Config.getClientId(), oAuth2Config.getSecret()))
                         .accept("application/json;charset=UTF-8"))
                         .andExpect(status().isOk())
                         .andExpect(content().contentType("application/json;charset=UTF-8"));
