@@ -4,7 +4,7 @@ Rest API application allow to get list of vehicles from localization by distance
 
 == Authorization
 
-=== This endpoint allow users to get authentication token.
+=== This endpoint allows users to get authentication token or check information about token.
 
 .request
 include::{snippets}/get-token-valid/http-request.adoc[]
@@ -24,7 +24,7 @@ include::{snippets}/get-token-valid/response-fields.adoc[]
 .curl
 include::{snippets}/get-token-valid/curl-request.adoc[]
 
-=== This endpoint allow users to get information about token.
+=== This endpoint allows users to get information about token.
 
 .request
 include::{snippets}/check-access-token-valid/http-request.adoc[]
@@ -68,7 +68,7 @@ include::{snippets}/get-vehicles-auth/curl-request.adoc[]
 
 == Files
 
-=== This endpoint allow user to upload file on server.
+=== This endpoint allows user to upload file on server.
 
 .request
 include::{snippets}/upload-file-auth/http-request.adoc[]
@@ -85,7 +85,7 @@ include::{snippets}/upload-file-auth/response-fields.adoc[]
 .curl
 include::{snippets}/upload-file-auth/curl-request.adoc[]
 
-=== This endpoint allow user to download file from server.
+=== This endpoint allows user to download file from server.
 
 .request
 include::{snippets}/download-file-auth/http-request.adoc[]

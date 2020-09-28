@@ -33,11 +33,13 @@ public class FileController {
     }
 
     @GetMapping(value = "/downloadFile/{fileName:.+}")
-    public ResponseEntity<Resource> downloadFile(@PathVariable String fileName) {
+    public ResponseEntity downloadFile(@PathVariable String fileName) {
+        Map<String, String> response = new HashMap<>();
         String contentType = "application/octet-stream";
         Resource resource = fileService.getFile(fileName);
         if (!resource.exists()) {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            response.put("message", "File doesn't exist.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
         return ResponseEntity.ok()
                 .contentType(MediaType.parseMediaType(contentType))
